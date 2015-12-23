@@ -10,3 +10,9 @@ A demo featuring several things deployed in our livinglab is available [HERE](ht
 
 Please note that due to improper rendering support for SVGs in current WebKit browsers the demo may lag significantly. For the best experience, Firefox mobile is recommended.
 We are working to fix this issue by replacing the computation intensive svg fill operations by simple images until the software support reaches an acceptable level.
+
+## Taking a Screenshot
+
+Run the server via node index.js and then separately execute:
+
+`phantomjs takescreenshot.js`

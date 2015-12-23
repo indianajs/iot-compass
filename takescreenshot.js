@@ -5,7 +5,7 @@ page.viewportSize = {
   height: 800
 };
 
-page.open('http://localhost:3000/', function() {
+page.open('http://localhost:3000/iot2015', function() {
   page.render('capture.png');
   phantom.exit();
 });

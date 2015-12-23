@@ -24,7 +24,7 @@ html(lang='en')
     script(src='js/html5-qrcode.min.js')
     script(src='js/hammer.min.js')
     //- IndianaJS is imported from the main project folder linked statically in app.js
-    script(src='indiana.js')
+    script(src='js/bower_components/indianajs/indiana.js')
     script(src='js/radar.js')
     script(src='js/headroom.min.js')
 
@@ -154,9 +154,13 @@ body.container-fluid
         //- alert(supportsVibrate);
         var intialisation = true;
         var radarIsAvailable = false;
+        var allowNonSupportedDevices = true;
         //hide all Position elements before we know if DeviceOrientationEvent is available
         $("[id$=Position]").hide();
-        $(document).ready(function(){
+  
+        $(document).ready(displayRadar());
+
+        function displayRadar(){
             // grab an element
             if (window.DeviceOrientationEvent) {
 
@@ -166,7 +170,6 @@ body.container-fluid
                   var dir = eventData.alpha;
 
                   if(dir != null){
-                    console.log("Device says it supports DeviceOrientationEvent but does not. Not starting compass.")
                     document.getElementById('explorerheader').style.display = 'block';
                     document.getElementById('radar').style.display = 'block';
                     document.getElementById('overviewbar').style.display = 'block';  
@@ -174,12 +177,14 @@ body.container-fluid
                     $("[id$=Position]").show();
                     radarIsAvailable = true;
                   }
+                  else{
+                    console.log("Device says it supports DeviceOrientationEvent but does not. Not starting compass.")
+                  }
                   intialisation = false;
                 }
+              })
                 
-              }, false);
-            }
-
-            //- init();
-            //- resetOrientation();
-            });
+              }
+        //- init();
+        //- resetOrientation();
+        }
