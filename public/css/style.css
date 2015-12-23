@@ -1,0 +1,219 @@
+body {
+    /*padding-top: 50px;  Whatever the height of your navbar is; the*//*default is 50px */
+    /* background-color: #fff8e1; */
+    /*background-image: url('../img/iot2015_logo_brighter.png');*/
+}
+
+html{
+    /*background-image: url('../img/iot2015_logo_brighter.png');*/
+    padding: 0;
+    margin: 0;
+}
+
+p{
+  text-align: left;
+}
+
+.btn{
+  min-width: 8rem;
+}
+
+.btn-day:hover, .btn-night:hover{
+  color: white;
+}
+
+.btn-day{
+  background: #81BEFD;
+  color: white;
+  border: 1px solid gray;
+
+  background-image: -webkit-linear-gradient(top,#5cb85c 0,#419641 100%);
+  background-image: -o-linear-gradient(top,#5cb85c 0,#419641 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#419641));
+  background-image: linear-gradient(to bottom,#81BEFD 0,#316EFD 100%);
+}
+
+.btn-night{
+   background: #381616;
+   color: white;
+   border: 1px solid black;
+}
+
+div.button-color{
+  text-align: left;
+}
+
+header{
+    /*background-color: #3f51b5; indigo*/
+    /*background-color:  #cddc39; yello*/
+    background-color: #ffc107; /*amber*/
+    color: black;
+}
+
+#explorerheader, #overviewbar, #radar{
+  display: none;
+}
+
+.materialshadow{
+
+    -webkit-box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.26);
+    -moz-box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.26);
+    box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.26);
+}
+
+.svgshadow{
+    filter: drop-shadow(0px 5px 5px #23CF25);
+}
+
+h1{
+    padding-top: 10px;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+h2{
+    margin-top: 10px;
+    font-size: 1.3em;
+}
+
+.navbar{
+    padding: 0;
+    margin-bottom: 0;
+    border-radius: 0px;
+    min-height: 0px;
+}
+
+#mini_radar_selection{
+/*     height: auto; */
+/*     width: 30%; */
+    border-radius: 20px;
+}
+
+input{
+    display: none;
+}
+
+/* CSS for fixing the overviewbar when the user scrolls, also JS controlled */
+.affix{
+    position: fixed;
+    top: 0;
+    width:100%
+}
+
+.thing{
+    padding-top:8rem;
+}
+
+#pagecontent{
+    max-width: 1000px;
+    text-align: center;
+}
+
+#pagecontent img{
+    border-radius: 3rem; 
+    max-width: 100%;
+}
+
+div.description {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.fixed{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    transform: translateY(0px);
+}
+
+.small{
+    height: 30px !important;
+    width: auto !important;
+}
+
+.headroom {
+    transition: transform 200ms linear;
+}
+
+#mini_radar_selection{
+    height: 30px;
+}
+
+#mini_radar_icon{
+    font-size: 15pt;
+    vertical-align: sub;
+}
+
+ul{
+    margin-bottom: 0px;
+}
+
+#overviewbar{
+    z-index: 100;
+}
+
+.postit {
+  max-width: 300px;
+  text-align:center;
+  width: 100%;
+  margin: 15px 0px 15px 0px;
+  min-height:200px;
+  max-height:250px;
+  padding: 35px 10px 0px 20px;
+  position:relative;
+  border:1px solid #E8E8E8;
+  border-top: 30px solid #fdfd86;
+  font-family:'Reenie Beanie';
+  font-size:22px;
+  border-bottom-right-radius: 60px 5px;
+  display:inline-block;
+  background: #ffff88;/* Old browsers */
+  background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);/* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6));/* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);/* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);/* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);/* IE10+ */
+  background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);/* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 );/* IE6-9 fallback on horizontal gradient */
+}
+
+
+.smallred{
+   padding: 0px;
+   min-height:100px;
+   border-top: 30px solid #ff8888;
+   background: #ff8888;/* Old browsers */
+   border: 1px solid #A5A5A5;
+   border-top: 30px solid #ff8888;
+   background: linear-gradient(135deg, #ff8888 81%,#ff8888 82%,#ff8888 82%,#ffAA88 100%);/* W3C */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8888', endColorstr='#ffAA88',GradientType=1 );/* IE6-9 fallback on horizontal gradient */
+}
+ 
+.postitgreen{
+   padding: 0px;
+   min-height:100px;
+   border-top: 30px solid #88FF88;
+   background: #88FF88;/* Old browsers */
+   border: 1px solid #A5A5A5;
+   border-top: 30px solid #88FF88;
+   background: linear-gradient(135deg, #88FF88 81%,#88FF88 82%,#99FF99 82%,#99FF99 100%);/* W3C */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88FF88', endColorstr='#ffAA88',GradientType=1 );/* IE6-9 fallback on horizontal gradient */
+}
+
+.postit:after {     
+   content: "";
+  position:absolute;
+  z-index:-1;
+  right:-0px; bottom:20px;
+  width: 80%;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
+-moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+ -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+      -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+     -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+         transform: matrix(-1, -0.1, 0, 1, 0, 0);
+}
+
+/*radar color: #ff6f00*/

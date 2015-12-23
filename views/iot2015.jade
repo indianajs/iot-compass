@@ -1,0 +1,185 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    //- link(rel='stylesheet', href='css/bootstrap-responsive.css') //probably already compiled into boostrap.min
+    
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='js/startbootstrap-scrolling-nav-1.0.3/css/scrolling-nav.css')
+    link(rel='stylesheet', href='css/style.css')
+    link(href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css')
+
+    //- use browserify
+    //- script(src='js/bundle.js')
+
+    script(src='js/jquery.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/startbootstrap-scrolling-nav-1.0.3/js/jquery.easing.min.js')
+    script(src='js/startbootstrap-scrolling-nav-1.0.3/js/scrolling-nav.js')
+    script(src='js/d3.v3.min.js')
+    script(src='js/jsqrcode-combined.min.js')
+    script(src='js/html5-qrcode.min.js')
+    script(src='js/hammer.min.js')
+    //- IndianaJS is imported from the main project folder linked statically in app.js
+    script(src='indiana.js')
+    script(src='js/radar.js')
+    script(src='js/headroom.min.js')
+
+
+body.container-fluid
+    header#explorerheader(role="navigation").row.navbar.materialshadow
+        h1.pull-left #{title} Explorer
+        a(href="#overviewbar").page-scroll.pull-right
+            ul.list-inline
+                li 
+                    h2 Content
+                li
+                    span.glyphicon.glyphicon-list-alt
+
+    //- IoT-Compass
+    section#radar.page-section.row
+        br
+        p#radartarget(style="text-align: center", aria-live="polite") 
+        div#radardiv
+        div#qrcodediv(style="width: 300px; height:200px")
+        //- div#qrcodedivdata
+        //- div#qrcodediverr
+        //- button(onclick="readqrcode()") Read QR code
+        //- button(onclick="getIndianaData()") Ask Indiana for Data
+        //- button(onclick="resetIndianaOrientation()") Reset Device Orientation
+        //- button(onclick="toggleShowSelectedItem()") Toggle only show infront
+        //- div#radartarget none
+        //- img(src="img/Radar1.jpg")
+    
+    //- Overview Bar
+    header#overviewbar(role="navigation").row.materialshadow
+        h1.pull-left #{title} Page
+        a(href='#explorerheader').page-scroll.pull-right 
+            ul.list-inline
+                li
+                    h2 Radar
+                li
+                    span#mini_radar_icon.glyphicon.glyphicon-dashboard
+                    img#mini_radar_selection
+
+    //- Content
+    section#pagecontent(vocab='http://schema.org/', role='main').page-section.home
+
+      h1 Till's demo desk
+        |Simple demo of a simple static website extended uses indiana.js with a compass widget   
+            
+      div#flower.thing.row(typeof='Product')
+        div.col-xs-12.col-sm-6
+          img(src='img/flower2.jpg', alt='green Blume')
+        div.description.col-xs-12.col-sm-6
+          h2(property='name') Carex Grass     
+          a(href="https://en.wikipedia.org/wiki/Carex") Carex Grass on Wikipedia
+          br
+          p.postit
+              | Don't forget to water my grass about once a week while I am away. 
+              | Thanks
+              | till
+          br
+          p Current Plant humidity 67%. 
+          div.btn-group.button-color
+            button.btn.btn-info(href='#', onclick="waterThePlant('lamp2')") Add water 
+              span.glyphicon.glyphicon-tint
+          p#flowerPosition
+
+      hr
+
+      div#lamp2.thing.row(typeof='Product')
+        div.col-xs-12.col-sm-6
+          img(src="img/flowerlamp.jpg",alt='Plant Life Signal Light')
+        div.description.col-xs-12.col-sm-6
+          h2(property='name') Plant Watering Lamp
+          span(property='label', content='Plant Life Signal Light')
+          br
+          p.postit.smallred
+              | Keep an eye on this, will you?
+              br
+              span Till
+          br
+          p#lamp2Status(property='description')
+             | The red color indicates that your plant <strong id="plantPosition"></strong> needs immediate attention 
+          div#lampControls
+            div.button-color
+               button.btn.btn-success(href='#', onclick="on('lamp2')") ON
+               button.btn.btn-danger(href='#', onclick="off('lamp2')") OFF
+          p#lamp2Position
+
+      hr
+
+      div#lamp1.thing.row(typeof='Product')
+        div.col-xs-12.col-sm-6
+          img(src='img/lamp.png' alt="Stock Indicator")
+        div.description.col-xs-12.col-sm-6
+          h2(property='name') My Office Lamp
+          p The lamp is currently in <span id="lightmode">day</span>-light mode 
+          div#lampControls
+            //- div(data-toggle="buttons").btn-group.button-color
+            div.button-color
+                button.btn.btn-day(href='#', onclick="daymode('lamp1')") Day
+                button.btn.btn-night(href='#', onclick="nightmode('lamp1')") Night
+            br
+            div.button-color
+                button.btn.btn-success(href='#', onclick="on('lamp1')") ON
+                button.btn.btn-danger(href='#', onclick="off('lamp1')") OFF
+          p#lamp1Position
+
+      hr
+
+      div#laptop.thing.row(typeof='Product')
+        div.col-xs-12.col-sm-6
+          img(src="img/laptop.jpg", alt='Plant Life Signal Light')
+        div.description.col-xs-12.col-sm-6
+          h2(property='name') Lenovo X250 Laptop
+          a(href="http://thinkwiki.de/X250") X250 on Thinkwiki
+          p(property='label', content='Laptop')
+          p.postit.postitgreen
+              | You should rather get a Mac!
+              br
+              span ;-) Steve
+          br
+          p#laptopStatus(property='description')
+            | Notification from Microsoft: The work laptop needs an important update!
+          p#laptopPosition
+
+    script.
+        //- supportsVibrate = "vibrate" in navigator;
+        //- console.log('This device supports vibration: '+ supportsVibrate);
+        //- alert(supportsVibrate);
+        var intialisation = true;
+        var radarIsAvailable = false;
+        //hide all Position elements before we know if DeviceOrientationEvent is available
+        $("[id$=Position]").hide();
+        $(document).ready(function(){
+            // grab an element
+            if (window.DeviceOrientationEvent) {
+
+             window.addEventListener('deviceorientation', function(eventData) {
+                if(intialisation){
+                  // alpha is the compass direction the device is facing in degrees
+                  var dir = eventData.alpha;
+
+                  if(dir != null){
+                    console.log("Device says it supports DeviceOrientationEvent but does not. Not starting compass.")
+                    document.getElementById('explorerheader').style.display = 'block';
+                    document.getElementById('radar').style.display = 'block';
+                    document.getElementById('overviewbar').style.display = 'block';  
+                    // show position texts                  
+                    $("[id$=Position]").show();
+                    radarIsAvailable = true;
+                  }
+                  intialisation = false;
+                }
+                
+              }, false);
+            }
+
+            //- init();
+            //- resetOrientation();
+            });
